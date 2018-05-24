@@ -4,6 +4,8 @@
 
 #include "Agent.h"
 
+//This class is used to handle the graphics side of the application.
+
 class GraphicsEngine
 {
 public:
@@ -15,8 +17,6 @@ public:
 	void Draw();
 	void SwapBuffers();
 	void ProcessInput();
-
-	void AddSprite(float x, float y, float width, float height);
 
 private:
 	SDL_Window * mWindow;

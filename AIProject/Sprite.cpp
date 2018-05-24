@@ -34,7 +34,6 @@ void Sprite::Init(float x, float y, float width, float height, float angle)
 
 	float vertexData[6];
 
-	//Triangle
 	vertexData[0] = x + (x1 * c - y1 * s);
 	vertexData[1] = y + (x1 * s + y1 * c);
 	vertexData[2] = x + (x2 * c - y2 * s);
@@ -42,28 +41,6 @@ void Sprite::Init(float x, float y, float width, float height, float angle)
 	vertexData[4] = x + (x3 * c - y3 * s);
 	vertexData[5] = y + (x3 * s + y3 * c);
 	
-	//x1 = 0
-	//y1 = + h / 2
-	//x2 = - w / 2
-	//y2 = - h / 2
-	//x3 = + w / 2
-	//y3 = - h / 1
-
-	//First triangle
-	//vertexData[0] = x + width / 2;
-	//vertexData[1] = y + height / 2;
-	//vertexData[2] = x - width / 2;
-	//vertexData[3] = y + height / 2;
-	//vertexData[4] = x - width / 2;
-	//vertexData[5] = y - width / 2;
-	//
-	////Second triangle
-	//vertexData[6] = x - width / 2;
-	//vertexData[7] = y - height / 2;
-	//vertexData[8] = x + width / 2;
-	//vertexData[9] = y - height / 2;
-	//vertexData[10] = x + width / 2;
-	//vertexData[11] = y + height / 2;
 
 	glBindBuffer(GL_ARRAY_BUFFER, mVboId);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_DYNAMIC_DRAW);
@@ -84,13 +61,13 @@ void Sprite::Update(float x, float y, float angle)
 
 	float vertexData[6];
 
-	//Triangle
 	vertexData[0] = x + (x1 * c - y1 * s);
 	vertexData[1] = y + (x1 * s + y1 * c);
 	vertexData[2] = x + (x2 * c - y2 * s);
 	vertexData[3] = y + (x2 * s + y2 * c);
 	vertexData[4] = x + (x3 * c - y3 * s);
 	vertexData[5] = y + (x3 * s + y3 * c);
+
 	glBindBuffer(GL_ARRAY_BUFFER, mVboId);
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertexData), vertexData);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);

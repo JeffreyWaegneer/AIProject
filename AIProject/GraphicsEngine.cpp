@@ -3,6 +3,7 @@
 
 #include "GraphicsEngine.h"
 
+//Small function for error handling (It doesn't handle errors very well)
 void FatalError(std::string errorMsg)
 {
 	std::cout << errorMsg << std::endl;
@@ -76,8 +77,4 @@ void GraphicsEngine::ProcessInput()
 			break;
 		}
 	}
-}
-
-void GraphicsEngine::AddSprite(float x, float y, float width, float height)
-{
 }

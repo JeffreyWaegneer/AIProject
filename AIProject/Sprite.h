@@ -1,6 +1,9 @@
 #pragma once
 
 #include <glew.h>
+
+//Class is mostly used for the graphical side of an agent.
+
  class Sprite
 {
 public:

@@ -23,17 +23,6 @@ struct Direction
 			angle += (float)PI;
 		return angle - (float)PI / 2;
 	}
-	float angleDegrees()
-	{
-		float angle = (float)(atan(y / x) * (180 / PI));
-		if (x < 0 && y < 0)
-			angle += 180;
-		else if (x < 0)
-			angle += 90;
-		else if (y < 0)
-			angle += 270;
-		return angle;
-	}
 };
 
 class Brain
@@ -43,17 +32,28 @@ public:
 	Brain(Direction directions[100]);
 	~Brain();
 
+	//Creates a new brain with same directions.
 	Brain Clone();
+
+	//Mutates the brain, small chance a direction gets randomized.
 	void Mutate();
 
+	//Returns the direction it's heading in.
 	Direction GetDirection();
+
+	//Returns true if not dead. 
 	bool NextStep();
 
+	//Returns the number of steps taken.
 	int GetStep();
 
 private:
 	Direction mDirections[100];
+
+	//This is for the direction it's heading in.
 	int step;
+
+	//This is for the magnitude of the direction (eg. if it's 5 it should keep going in that direction for five turns)
 	int counter;
 };
 

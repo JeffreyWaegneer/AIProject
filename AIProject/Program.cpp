@@ -64,22 +64,21 @@ bool Program::AgentReachedTarget()
 
 void Program::CreateNextGen()
 {
-	Agent nextGen[100];
-	nextGen[0].SetBrain(SelectChampion().CreateCloneBrain());
+	Brain nextGenBrain[100];
+	nextGenBrain[0] = SelectChampion().CreateCloneBrain();
 	float sum = CalculateFitnessSum();
 	std::cout << "Gen:\t\t\t" << gen << std::endl;
 	std::cout << "Champ fitness:\t\t" << GenChampFit << std::endl;
-	std::cout << "Average fitness:\t" << sum/100 << std::endl;
+	std::cout << "Average fitness:\t" << sum / 100 << std::endl;
 	std::cout << "--------------------------------" << std::endl;
 	for (int i = 1; i < 100; i++)
 	{
-		nextGen[i].SetBrain(SelectParent(sum).CreateBabyBrain());
+		nextGenBrain[i] = SelectParent(sum).CreateBabyBrain();
 	}
 
 	for (int i = 0; i < 100; i++)
 	{
-		mAgents[i] = nextGen[i];
-		mAgents[i].SetTarget(mTarget);
+		mAgents[i].SetBrain(nextGenBrain[i]);
 	}
 	gen++;
 }
