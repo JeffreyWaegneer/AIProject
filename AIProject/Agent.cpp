@@ -55,7 +55,7 @@ float Agent::CalculateFitness()
 		//If you get really close to the target it's possible to score up to 2500 without touching the target.
 		fitness = 2500 + 2500.0f / (float)((powf((float)mBrain.GetStep(), 2)));
 	else
-		fitness = 100 / powf(distance, 2);
+		fitness = 1 / powf(distance, 2);
 	return fitness;
 }
 
